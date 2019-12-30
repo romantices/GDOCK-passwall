@@ -3,7 +3,7 @@
 #   Author: JK
 #=================================================
 
-name: Build G-DOCK
+name: Build 竞斗云20191230
 
 on: 
   release:

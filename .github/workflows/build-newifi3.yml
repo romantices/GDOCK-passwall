@@ -58,10 +58,10 @@ jobs:
     - name: Load custom configuration
       run: |
         cp -f newifi3.config ./lede/.config
-        chmod +x diy.sh
+        chmod +x diy-newifi3.sh
         cd lede
    # 个性化
-   ##  ../diy.sh
+        ../diy-newifi3.sh
         make defconfig
     - name: Download package
       run: |

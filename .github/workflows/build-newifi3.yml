@@ -1,15 +1,18 @@
 #=================================================
-#   Description: Build newifi3固件 FROM LEAN'S LEDE
+#   Description: Buildnewifi3固件 FROM LEAN'S LEDE
 #   Author: JK
 #=================================================
 
+#=================================================
 name: Build newifi3-20200112
+#=================================================
+
 on: 
   release:
     types: [published]
-  #push:
-  #  branches: 
-  #    - master
+  push:
+    branches: 
+      - master
 
 jobs:
   build:
@@ -57,10 +60,12 @@ jobs:
 
     - name: Load custom configuration
       run: |
+        #=================================================
         cp -f newifi3.config ./lede/.config
         chmod +x diy-newifi3.sh
         cd lede
         ../diy-newifi3.sh
+        #=================================================
         make defconfig
     - name: Download package
       run: |
@@ -76,5 +81,6 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
+        #=================================================
         name: newifi3
         path: ./lede/bin

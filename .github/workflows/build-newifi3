@@ -1,5 +1,5 @@
 #=================================================
-#   Description: Build G-DOCK FROM LEAN'S LEDE
+#   Description: Build newifi3固件 FROM LEAN'S LEDE
 #   Author: JK
 #=================================================
 
@@ -7,9 +7,9 @@ name: Build newifi3-20200112
 on: 
   release:
     types: [published]
-  push:
-    branches: 
-      - master
+  #push:
+  #  branches: 
+  #    - master
 
 jobs:
   build:
@@ -60,7 +60,8 @@ jobs:
         cp -f newifi3.config ./lede/.config
         chmod +x diy.sh
         cd lede
-        ../diy.sh
+   # 个性化
+   #  ../diy.sh
         make defconfig
     - name: Download package
       run: |

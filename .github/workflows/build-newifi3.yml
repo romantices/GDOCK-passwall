@@ -61,7 +61,7 @@ jobs:
         chmod +x diy.sh
         cd lede
    # 个性化
-   #  ../diy.sh
+   ##  ../diy.sh
         make defconfig
     - name: Download package
       run: |

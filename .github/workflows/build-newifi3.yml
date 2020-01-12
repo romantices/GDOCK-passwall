@@ -60,7 +60,6 @@ jobs:
         cp -f newifi3.config ./lede/.config
         chmod +x diy-newifi3.sh
         cd lede
-   # 个性化
         ../diy-newifi3.sh
         make defconfig
     - name: Download package

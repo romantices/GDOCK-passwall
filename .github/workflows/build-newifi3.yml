@@ -4,15 +4,15 @@
 #=================================================
 
 #=================================================
-name: Build newifi3-20200112
+name: Build newifi3-20200116
 #=================================================
 
 on: 
   release:
     types: [published]
-#  push:
-#    branches: 
-#      - master
+  push:
+    branches: 
+      - master
 
 jobs:
   build:

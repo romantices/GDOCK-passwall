@@ -53,9 +53,9 @@ jobs:
       run: |
         git clone https://github.com/coolsnowwolf/lede lede
         
-    - name: Clone pass wall code
+    - name: Clone passwall code
       run: |
-        cd lede&&  git clone https://github.com/romantices/Lienol-openwrt-package.git        
+        cd lede/package &&  git clone https://github.com/romantices/Lienol-openwrt-package.git        
         
         
         

@@ -91,5 +91,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name: newifi3+passwall
+        name: X86-64+passwall
         path: ./lede/bin

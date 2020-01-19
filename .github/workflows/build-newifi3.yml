@@ -10,9 +10,9 @@ name: Build newifi3+passwall-20200119
 on: 
   release:
     types: [published]
-  push:
-    branches: 
-      - master
+#  push:
+#    branches: 
+#      - master
 
 jobs:
   build:

@@ -51,6 +51,8 @@ jobs:
     - name: Clone source code
       run: |
         git clone https://github.com/coolsnowwolf/lede lede
+        
+- name: Clone passwall code       run: |         cd lede/package &&  git clone https://github.com/Lienol/openwrt-package.git                 
 
     - name: Update feeds
       run: cd lede && ./scripts/feeds update -a

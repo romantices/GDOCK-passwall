@@ -3,7 +3,7 @@
 #   Author: JK
 #=================================================
 
-name: Build 竞斗云+passwall20200125
+name: Build 竞斗云+passwall+smartDNS20200125
 
 on: 
   release:

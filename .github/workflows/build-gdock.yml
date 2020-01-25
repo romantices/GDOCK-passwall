@@ -11,7 +11,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-
+  watch:
+    types: [started]
 jobs:
   build:
     runs-on: ubuntu-18.04

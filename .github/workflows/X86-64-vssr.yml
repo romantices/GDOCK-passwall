@@ -70,12 +70,11 @@ jobs:
     - name: Clone luci-theme-argon code
       run: |
         cd lede/package/lean
-############删除原来的luci-theme-argon主题，并下载最新版 argon主题       
-        rm -rf luci-theme-argon
-        git clone https://github.com/romantices/luci-theme-argon.git
+############删除原来的luci-theme-argon主题，并下载最新版 argon主题
+        
         
     - name: Update feeds
-      run: cd lede && ./scripts/feeds update -a
+      run: cd lede && ./scripts/feeds update -a  
 
     - name: Install feeds
       run: cd lede && ./scripts/feeds install -a
@@ -84,7 +83,7 @@ jobs:
       run: |
         #=================================================
         #+++++++++++++++++++++++++++++++++++++++++++++++++
-        cp -f X86-ssr-jo.config ./lede/.config
+        cp -f X86-vssr.config ./lede/.config
         chmod +x diy-newifi3.sh
         cd lede
         ../diy-newifi3.sh
@@ -114,5 +113,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name:  X86-ssr-jo-20200128
+        name:  X86-VSSR-20200128
         path: ./lede/bin

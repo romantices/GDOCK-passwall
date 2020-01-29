@@ -1,6 +1,8 @@
 #=================================================
 #   Description: Build  X86-64固件SSR-JO FROM LEAN'S LEDE
-#   Author: JK
+#   Author: BEAR
+#
+#   https://github.com/romantices/luci-app-ssr-plus-jo-1.git
 #=================================================
 
 #=================================================
@@ -13,8 +15,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-  watch:
-    types: [started]
+#  watch:
+#    types: [started]
 
 jobs:
   build:

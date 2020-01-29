@@ -6,7 +6,7 @@
 #=================================================
 
 #=================================================
-name: Build X86-64+SSR-JO-20200129
+name: Build X86-64+SSR-JO-20200130
 #=================================================
 
 on: 
@@ -15,8 +15,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -61,6 +61,13 @@ jobs:
       run: |
         cd lede/package &&  git clone https://github.com/Lienol/openwrt-package.git
   
+###########删除coolsnowwolf的SSR plus代码##########################################
+    - name: Delete luci-app-ssr-plus code
+      run: |
+        cd lede/package/lean
+        rm -rf luci-app-ssr-plus
+
+
 ###########下载SSR魔改版的代码############################################################      
     - name: Clone luci-app-ssr-plus-jo-1 code
       run: |
@@ -107,5 +114,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name:  X86-ssr-jo-20200129
+        name:  X86-ssr-jo-20200130
         path: ./lede/bin

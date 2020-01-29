@@ -15,8 +15,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-  watch:
-    types: [started]
+#  watch:
+#    types: [started]
 
 jobs:
   build:
@@ -107,5 +107,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name:  X86-ssr-jo-20200128
+        name:  X86-ssr-jo-20200129
         path: ./lede/bin

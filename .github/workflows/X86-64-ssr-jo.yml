@@ -13,8 +13,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -60,7 +60,7 @@ jobs:
         cd lede/package &&  git clone https://github.com/Lienol/openwrt-package.git
   
 ###########下载SSR魔改版的代码############################################################      
-     - name: Clone luci-app-ssr-plus-jo-1 code
+    - name: Clone luci-app-ssr-plus-jo-1 code
       run: |
         cd lede/package &&  git clone https://github.com/romantices/luci-app-ssr-plus-jo-1.git
             

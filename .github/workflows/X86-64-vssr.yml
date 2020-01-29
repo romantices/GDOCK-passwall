@@ -15,8 +15,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -61,6 +61,13 @@ jobs:
       run: |
         cd lede/package &&  git clone https://github.com/Lienol/openwrt-package.git
   
+###########删除coolsnowwolf的SSR plus代码##########################################
+    - name: Delete luci-app-ssr-plus code
+      run: |
+        cd lede/package/lean
+        rm -rf luci-app-ssr-plus
+
+
 ###########下载VSSR的代码############################################################      
     - name: Clone luci-app-vssr code
       run: |

@@ -2,13 +2,16 @@
 自动从lean的lede源码clone并生成竞斗云和newifi3固件
 
 我把原作者的代码进行了部分修改：
-1. 添加了build-newifi3.yml文件，并且在build-newifi3.yml文件中增加了下面的代码
-- name: Clone passwall code
+##### 1. 添加了build-newifi3.yml文件，并且在build-newifi3.yml文件中增加了下面的代码
+
+\- name: Clone passwall code
+
       run: |
         cd lede/package &&  git clone https://github.com/Lienol/openwrt-package.git
 
   用来把passwall的源代码，下载到package目录下。
-2. 添加了newifi3.config、banner-newifi3、diy-newifi3三个文件。
+
+##### 2. 添加了newifi3.config、banner-newifi3、diy-newifi3三个文件。
    newifi3.config是编译用的.config文件，在这个文件中也增加了下面的代码
 
 CONFIG_PACKAGE_luci-app-passwall=y

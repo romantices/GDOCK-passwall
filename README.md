@@ -1,7 +1,7 @@
 # GDOCK
 自动从lean的lede源码clone并生成竞斗云和newifi3固件
 
-我把原作者的代码进行了部分修改：
+我把原作者的代码(https://github.com/ljk4160/GDOCK)进行了部分修改：
 ##### 1. 添加了build-newifi3.yml文件，并且在build-newifi3.yml文件中增加了下面的代码
 
 \- name: Clone passwall code
@@ -16,29 +16,29 @@
 ```
 CONFIG_PACKAGE_luci-app-passwall=y
 
-\#
+#
 
-\# Configuration
+# Configuration
 
-\#
+#
 
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ipt2socks=y
 
-\# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks is not set
 
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR=y
 
-\# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_socks is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_socks is not set
 
-\# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_socks is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_socks is not set
 
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray=y
 
-\# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan is not set
 
-\# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook is not set
 
-\# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_kcptun is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_kcptun is not set
 
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_haproxy=y
 
@@ -46,9 +46,9 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ChinaDNS_NG=y
 
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_pdnsd=y
 
-\# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_dns2socks is not set
+# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_dns2socks is not set
 
-\# CONFIG_PACKAGE_luci-app-polipo is not set
+# CONFIG_PACKAGE_luci-app-polipo is not set
 ```
   用来把passwall编译到固件中。（这段代码是在本地编译环境中，用make menuconfig 命令生成的）
 
@@ -66,7 +66,6 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_pdnsd=y
 
 ```
 on:
-
      release:
        types: [published]
      # push:  

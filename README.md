@@ -53,6 +53,8 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_pdnsd=y
   用来把passwall编译到固件中。（这段代码是在本地编译环境中，用make menuconfig 命令生成的）
 
 
+---
+
 
 *将本项目fork到自己账号下,进行以下操作即可得到专属定制固件*
 

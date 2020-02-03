@@ -13,7 +13,7 @@
 
 ##### 2. 添加了newifi3.config、banner-newifi3、diy-newifi3三个文件。
    newifi3.config是编译用的.config文件，在这个文件中也增加了下面的代码
-
+```
 CONFIG_PACKAGE_luci-app-passwall=y
 
 \#
@@ -49,7 +49,7 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_pdnsd=y
 \# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_dns2socks is not set
 
 \# CONFIG_PACKAGE_luci-app-polipo is not set
-
+```
   用来把passwall编译到固件中。（这段代码是在本地编译环境中，用make menuconfig 命令生成的）
 
 
@@ -64,19 +64,19 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_pdnsd=y
 
 3.以上修改完后push一下,即可自动编译固件，就是把yml文件中
 
-
+```
 on:
 
      release:
        types: [published]
-     \# push:  
-       \# branches:
-        \# \- master
+     # push:  
+     #   branches:
+     #     - master
 
 
 
-上面3行的 \# 都删除，就开始编译了。
-
+上面3行的 # 都删除，就开始编译了。
+```
 
 如果你只想使用固件,可以在本项目的actions下下载最新编译的固件.
 

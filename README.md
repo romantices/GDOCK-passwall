@@ -1,7 +1,7 @@
 # GDOCK
-自动从lean的lede源码clone并生成竞斗云和newifi3固件
+自动从lean的lede源码clone并生成竞斗云、newifi3和x86-64位固件
 
-我把原作者的代码(https://github.com/ljk4160/GDOCK)进行了部分修改：
+我把原作者的代码(https://github.com/ljk4160/GDOCK) 进行了部分修改：
 ##### 1. 添加了build-newifi3.yml文件，并且在build-newifi3.yml文件中增加了下面的代码
 
 \- name: Clone passwall code

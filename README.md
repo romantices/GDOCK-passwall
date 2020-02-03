@@ -66,11 +66,17 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_pdnsd=y
 
 
 on:
+
   release:
+  
      types: [published]
+     
   \#  push:
+  
   \#    branches:
+  
   \#      - master
+  
 
 
 上面3行的 \# 都删除，就开始编译了。

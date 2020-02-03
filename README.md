@@ -1,4 +1,4 @@
-\# GDOCK
+# GDOCK
 自动从lean的lede源码clone并生成竞斗云和newifi3固件
 
 我把原作者的代码进行了部分修改：

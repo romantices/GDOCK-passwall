@@ -15,22 +15,39 @@
    newifi3.config是编译用的.config文件，在这个文件中也增加了下面的代码
 
 CONFIG_PACKAGE_luci-app-passwall=y
+
 \#
+
 \# Configuration
+
 \#
+
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ipt2socks=y
+
 \# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks is not set
+
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR=y
+
 \# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_socks is not set
+
 \# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_socks is not set
+
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_V2ray=y
+
 \# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan is not set
+
 \# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Brook is not set
+
 \# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_kcptun is not set
+
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_haproxy=y
+
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ChinaDNS_NG=y
+
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_pdnsd=y
+
 \# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_dns2socks is not set
+
 \# CONFIG_PACKAGE_luci-app-polipo is not set
 
   用来把passwall编译到固件中。（这段代码是在本地编译环境中，用make menuconfig 命令生成的）

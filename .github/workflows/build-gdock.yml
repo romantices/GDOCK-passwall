@@ -3,7 +3,7 @@
 #   Author: JK
 #=================================================
 
-name: Build 竞斗云+passwall+smartDNS20200201
+name: Build 竞斗云+passwall-20200207
 
 on: 
   release:
@@ -11,8 +11,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -83,8 +83,16 @@ jobs:
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
 
+ ######把上面生成的.config文件拷贝到bin/targets/my.config，从而在下载固件时，一起下载回来。
+    - name: Copy .config  to  ./bin/targets/my.config
+      run: |
+        cd lede
+        cp  .config   ./bin/targets/my.config  
+
+
+
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: G-DOCK+passwall20200201
+        name: G-DOCK+passwall20200207
         path: ./lede/bin

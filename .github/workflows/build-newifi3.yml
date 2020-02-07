@@ -4,7 +4,7 @@
 #=================================================
 
 #=================================================
-name: Build newifi3+passwall+smartDNS-20200125
+name: Build newifi3+passwall-20200207
 #=================================================
 
 on: 
@@ -100,5 +100,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name: newifi3+passwall
+        name: newifi3+passwall-20200207
         path: ./lede/bin

@@ -83,11 +83,11 @@ jobs:
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
 
- ######把上面生成的.config文件拷贝到bin/targets/my.config，从而在下载固件时，一起下载回来。
-    - name: Copy .config  to  ./bin/targets/my.config
+ ######把上面生成的.config文件拷贝到bin/targets/ipq40xx/generic/my.config，从而在下载固件时，一起下载回来。
+    - name: Copy .config  to  ./bin/targets/ipq40xx/generic/my.config
       run: |
         cd lede
-        cp  .config   ./bin/targets/my.config  
+        cp  .config   ./bin/targets/ipq40xx/generic/my.config  
 
 
 

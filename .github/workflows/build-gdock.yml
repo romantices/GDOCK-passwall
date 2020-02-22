@@ -8,9 +8,9 @@ name: Build 竞斗云+passwall-20200222
 on: 
   release:
     types: [published]
-#  push:
-#    branches: 
-#      - master
+  push:
+    branches: 
+      - master
 #  watch:
 #    types: [started]
 jobs:

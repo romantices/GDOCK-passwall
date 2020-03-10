@@ -71,7 +71,7 @@ jobs:
       run: |
         #=================================================
         #+++++++++++++++++++++++++++++++++++++++++++++++++
-        cp -f X86.config ./lede/.config
+        cp -f X86-docker.config ./lede/.config
         chmod +x diy-newifi3.sh
         cd lede
         ../diy-newifi3.sh

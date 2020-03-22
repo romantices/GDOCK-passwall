@@ -4,7 +4,7 @@
 #=================================================
 
 #=================================================
-name: Build X86-64+passwall-20200310
+name: Build X86-64+passwall-20200322
 #=================================================
 
 on: 
@@ -13,8 +13,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:

@@ -53,11 +53,11 @@ jobs:
         sudo -E apt-get clean
     - name: Clone source code
       run: |
-        git clone https://github.com/coolsnowwolf/lede lede
+        git clone https://github.com/romantices/lede lede
         
-    - name: Clone passwall code
-      run: |
-        cd lede/package &&  git clone https://github.com/Lienol/openwrt-package.git
+#    - name: Clone passwall code
+#      run: |
+#        cd lede/package &&  git clone https://github.com/Lienol/openwrt-package.git
         
         
         

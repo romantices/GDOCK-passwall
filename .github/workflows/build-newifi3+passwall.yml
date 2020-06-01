@@ -64,8 +64,8 @@ jobs:
         
     - name: Clone passwall code
       run: |
-        cd lede/package &&  git clone https://github.com/Lienol/openwrt-package.git
-        
+        cd lede/package &&  git clone https://github.com/chengood5000/passwall652.git
+         ##下载别人备份的passwall源代码。
         
         
     - name: Update feeds

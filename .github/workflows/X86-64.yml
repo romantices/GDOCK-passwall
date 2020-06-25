@@ -13,8 +13,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -79,7 +79,7 @@ jobs:
       run: |
         #=================================================
         #+++++++++++++++++++++++++++++++++++++++++++++++++
-        cp -f X86-docker.config ./lede/.config
+        cp -f X86.config ./lede/.config
         chmod +x diy-newifi3.sh
         cd lede
         ../diy-newifi3.sh
@@ -102,7 +102,7 @@ jobs:
     - name: Copy .config  to  ./bin/targets/x86/64/my.config
       run: |
         cd lede
-        cp  .config   ./bin/targets/x86/64/my.config  
+      #  cp  .config   ./bin/targets/x86/64/my.config  
    
    
     - name : Upload artifact

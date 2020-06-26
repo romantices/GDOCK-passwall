@@ -4,7 +4,7 @@
 #=================================================
 
 #=================================================
-name: Build X86-64+passwall-20200625
+name: Build X86-64+passwall-20200626
 #=================================================
 
 on: 
@@ -13,8 +13,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -102,12 +102,12 @@ jobs:
     - name: Copy .config  to  ./bin/targets/x86/64/my.config
       run: |
         cd lede
-      #  cp  .config   ./bin/targets/x86/64/my.config  
+        cp  .config   ./bin/targets/x86/64/my.config  
    
    
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name: X86-64+passwall-20200625
+        name: X86-64+passwall-20200626
         path: ./lede/bin

@@ -4,7 +4,7 @@
 #=================================================
 
 #=================================================
-name: Build X86-64+passwall-20200703
+name: Build X86-64+passwall-20200706
 #=================================================
 
 on: 
@@ -13,8 +13,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -58,9 +58,14 @@ jobs:
         git clone https://github.com/coolsnowwolf/lede lede
         
         ##修改lede目录中的feeds.conf.default文件，把第5行的 # 去掉。
-        cd lede
-        sed -i '5s/#//' feeds.conf.default
-        
+        #cd lede
+        #sed -i '5s/#//' feeds.conf.default
+   
+   
+    - name: Clone SSR plus code
+      run: |
+        cd lede/package &&  git clone https://github.com/fw876/helloworld.git
+   
         
     - name: Clone passwall code
       run: |
@@ -109,5 +114,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name: X86-64+passwall-20200703
+        name: X86-64+passwall-20200706
         path: ./lede/bin

@@ -72,7 +72,12 @@ jobs:
         cd lede/package &&  git clone https://github.com/chengood5000/passwall652.git
          ##下载别人备份的passwall源代码。
         
-        
+    
+    
+    - name: Clone luci-app-smartdns code
+      run: |
+        cd lede/package &&  git clone https://github.com/pymumu/luci-app-smartdns.git
+    
         
     - name: Update feeds
       run: cd lede && ./scripts/feeds update -a

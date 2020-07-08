@@ -4,7 +4,7 @@
 #=================================================
 
 #=================================================
-name: Build X86-64+passwall-20200706
+name: Build X86-64+passwall-20200708
 #=================================================
 
 on: 
@@ -13,8 +13,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -114,5 +114,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name: X86-64+passwall-20200706
+        name: X86-64+passwall-20200708
         path: ./lede/bin

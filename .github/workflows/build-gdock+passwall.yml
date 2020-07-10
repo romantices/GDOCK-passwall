@@ -11,8 +11,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -118,7 +118,7 @@ jobs:
     - name: Copy .config  to  ./bin/targets/ipq40xx/generic/my.config
       run: |
         cd lede
-        cp  .config   ./bin/targets/ipq40xx/generic/my.config  
+    #    cp  .config   ./bin/targets/ipq40xx/generic/my.config  
    
     - name : Upload artifact
       uses: actions/upload-artifact@master

@@ -11,8 +11,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -76,6 +76,23 @@ jobs:
     - name: Install feeds
       run: cd lede && ./scripts/feeds install -a
 
+
+####********************************************************************************************
+    - name: delete smartdns code
+      run: |
+        cd lede/feeds/packages/net &&  rm -rf smartdns
+    - name: Clone luci-app-smartdns code
+      run: |
+        cd lede/package &&  git clone https://github.com/romantices/luci-app-smartdns-lede.git
+    
+    - name: Clone smartdns code
+      run: |
+        cd lede/package &&  git clone https://github.com/romantices/smartdns.git
+####********************************************************************************************
+
+
+
+
     - name: Load custom configuration
       run: |
         cp -f gdockfull128.config ./lede/.config
@@ -83,22 +100,26 @@ jobs:
         cd lede
         ../diy.sh
         make defconfig
+    
     - name: Download package
       run: |
         echo -e "$(nproc) thread build."
         cd lede && make download -j$(nproc)
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+   
     - name: Build
       run: |
         cd lede
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
  ######把上面生成的.config文件拷贝到bin/targets/ipq40xx/generic/my.config，从而在下载固件时，一起下载回来。
+    
     - name: Copy .config  to  ./bin/targets/ipq40xx/generic/my.config
       run: |
         cd lede
         cp  .config   ./bin/targets/ipq40xx/generic/my.config  
+   
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:

@@ -11,8 +11,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -58,16 +58,20 @@ jobs:
         #cd lede
        # sed -i '5s/#//' feeds.conf.default
        
-  
-    - name: Clone SSR plus code
+  ##***************************************************************************  
+    ##下载kenzok8/openwrt-packages的源代码 和 passwall依赖库kenzok8/small.git。
+    - name: Clone openwrt-packages code
       run: |
-        cd lede/package &&  git clone https://github.com/fw876/helloworld.git
-  
-  
-    - name: Clone passwall code
+        cd lede/package &&  git clone https://github.com/kenzok8/openwrt-packages.git
+    
+        
+    - name: Clone small code
       run: |
-        cd lede/package &&  git clone https://github.com/chengood5000/passwall652.git
-         ##下载别人备份的passwall源代码。               
+        cd lede/package &&  git clone https://github.com/kenzok8/small.git
+        
+ ##****************************************************************************  
+   
+   
     - name: Update feeds
       run: cd lede && ./scripts/feeds update -a
 

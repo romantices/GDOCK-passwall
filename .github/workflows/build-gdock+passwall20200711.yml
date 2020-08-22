@@ -11,8 +11,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -77,22 +77,6 @@ jobs:
 
     - name: Install feeds
       run: cd lede && ./scripts/feeds install -a
-
-####********************************************************************************************
-    - name: delete smartdns code
-      run: |
-        cd lede/feeds/packages/net &&  rm -rf smartdns
-    - name: Clone luci-app-smartdns code
-      run: |
-        cd lede/package &&  git clone https://github.com/romantices/luci-app-smartdns-lede.git
-    
-    - name: Clone smartdns code
-      run: |
-        cd lede/package &&  git clone https://github.com/romantices/smartdns.git
-####********************************************************************************************
-
-
-
 
 
     - name: Load custom configuration

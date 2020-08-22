@@ -3,7 +3,7 @@
 #   Author: JK
 #=================================================
 
-name: Build 竞斗云+passwall-20200821
+name: Build 竞斗云+passwall-20200822
 
 on: 
   release:
@@ -109,5 +109,5 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: G-DOCK+passwall-20200821
+        name: G-DOCK+passwall-20200822
         path: ./lede/bin

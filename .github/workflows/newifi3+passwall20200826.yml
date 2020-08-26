@@ -4,7 +4,7 @@
 #=================================================
 
 #=================================================
-name: Build newifi3+passwall-20200825
+name: Build newifi3+passwall-20200826
 #=================================================
 
 on: 
@@ -118,5 +118,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name: newifi3+passwall-20200825
+        name: newifi3+passwall-20200826
         path: ./lede/bin

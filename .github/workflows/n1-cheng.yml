@@ -4,7 +4,7 @@
 #=================================================
 
 #=================================================
-name:  编译支持斐讯N1盒子的OpenWRT固件-20200128
+name:  编译支持斐讯N1盒子的OpenWRT固件-20200826
 #=================================================
 
 on: 
@@ -13,8 +13,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -55,9 +55,18 @@ jobs:
       run: |
         git clone https://github.com/coolsnowwolf/lede lede
         
-    - name: Clone passwall code
+  ##***************************************************************************  
+    ##下载kenzok8/openwrt-packages的源代码 和 passwall依赖库kenzok8/small.git。
+    - name: Clone openwrt-packages code
       run: |
-        cd lede/package &&  git clone https://github.com/Lienol/openwrt-package.git
+        cd lede/package &&  git clone https://github.com/kenzok8/openwrt-packages.git
+    
+        
+    - name: Clone small code
+      run: |
+        cd lede/package &&  git clone https://github.com/kenzok8/small.git
+        
+  ##****************************************************************************  
         
         
         
@@ -93,5 +102,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name: n1
+        name: n1-20200826
         path: ./lede/bin

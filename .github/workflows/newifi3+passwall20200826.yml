@@ -113,7 +113,7 @@ jobs:
     - name: Copy .config  to  ./bin/targets/ramips/mt7621/my.config
       run: |
         cd lede
-        cp  .config   ./bin/targets/ramips/mt7621/my.config  
+    #    cp  .config   ./bin/targets/ramips/mt7621/my.config  
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:

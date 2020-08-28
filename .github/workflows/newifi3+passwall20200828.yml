@@ -4,7 +4,7 @@
 #=================================================
 
 #=================================================
-name: Build newifi3+passwall-20200826
+name: Build newifi3+passwall-20200828
 #=================================================
 
 on: 
@@ -13,8 +13,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -113,10 +113,10 @@ jobs:
     - name: Copy .config  to  ./bin/targets/ramips/mt7621/my.config
       run: |
         cd lede
-    #    cp  .config   ./bin/targets/ramips/mt7621/my.config  
+        cp  .config   ./bin/targets/ramips/mt7621/my.config  
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name: newifi3+passwall-20200826
+        name: newifi3+passwall-20200828
         path: ./lede/bin

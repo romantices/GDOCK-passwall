@@ -4,7 +4,7 @@
 #=================================================
 
 #=================================================
-name: Build newifi3+passwall-20201025
+name: Build newifi3+passwall-20201226
 #=================================================
 
 on: 
@@ -13,8 +13,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -118,5 +118,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name: newifi3+passwall-20201025
+        name: newifi3+passwall-20201226
         path: ./lede/bin

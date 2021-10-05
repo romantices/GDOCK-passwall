@@ -4,7 +4,7 @@
 #=================================================
 
 #=================================================
-name: Build X86-64-20210123
+name: Build X86-64-20211005
 #=================================================
 
 on: 
@@ -64,12 +64,12 @@ jobs:
     ##下载kenzok8/openwrt-packages的源代码 和 passwall依赖库kenzok8/small.git。
     - name: Clone openwrt-packages code
       run: |
- ##       cd lede/package &&  git clone https://github.com/kenzok8/openwrt-packages.git
+        cd lede/package &&  git clone https://github.com/kenzok8/openwrt-packages.git
     
         
     - name: Clone small code
       run: |
-  ##      cd lede/package &&  git clone https://github.com/kenzok8/small.git
+        cd lede/package &&  git clone https://github.com/kenzok8/small.git
         
 ##****************************************************************************     
       
@@ -118,5 +118,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name: X86-64-20210123
+        name: X86-64-20211005
         path: ./lede/bin

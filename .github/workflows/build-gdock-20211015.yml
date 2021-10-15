@@ -3,7 +3,7 @@
 #   Author: JK
 #=================================================
 
-name: Build 竞斗云-20211004
+name: Build 竞斗云-20211015
 
 on: 
   release:
@@ -11,8 +11,8 @@ on:
 #  push:
 #    branches: 
 #      - master
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 jobs:
   build:
     runs-on: ubuntu-18.04
@@ -109,5 +109,5 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with: 
-        name: G-DOCK-20211004
+        name: G-DOCK-20211015
         path: ./lede/bin

@@ -1,0 +1,116 @@
+#=================================================
+#   Description: Build  X86-64固件 FROM LEAN'S LEDE
+#   Author: JK
+#=================================================
+
+#=================================================
+name: Build X86-20230409
+#=================================================
+
+on: 
+  release:
+    types: [published]
+#  push:
+#    branches: 
+#      - master
+#  watch:
+#    types: [started]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Space cleanup and Initialization environment
+      env:
+          DEBIAN_FRONTEND: noninteractive
+      run: |
+          docker rmi `docker images -q`
+          sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d /usr/local/lib/android
+          sudo -E apt-mark hold grub-efi-amd64-signed
+          sudo -E apt update
+          sudo -E apt -y purge azure-cli* docker* ghc* zulu* llvm* firefox google* dotnet* powershell* openjdk* mysql* php* mongodb* dotnet* moby* snap*
+          sudo -E apt -y full-upgrade
+          sudo -E apt -y install ack antlr3 aria2 asciidoc autoconf automake autopoint binutils bison build-essential bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python3 python3-pip libpython3-dev qemu-utils rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
+          sudo -E systemctl daemon-reload
+          sudo -E apt -y autoremove --purge
+          sudo -E apt clean
+          sudo -E timedatectl set-timezone "Asia/Shanghai"
+        
+        
+    - name: Clone source code
+      run: |
+        git clone https://github.com/coolsnowwolf/lede lede
+        
+        ##修改lede目录中的feeds.conf.default文件，把第5行的 # 去掉。
+        #cd lede
+        #sed -i '5s/#//' feeds.conf.default
+##***************************************************************************  
+    ##下载kenzok8/openwrt-packages的源代码 和 passwall依赖库kenzok8/small.git。
+    - name: Clone openwrt-packages code and small code
+      run: |
+        cd lede
+        sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+        sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+        
+##****************************************************************************     
+      
+        
+    - name: Update feeds
+      run: cd lede && ./scripts/feeds update -a
+
+    - name: Install feeds
+      run: cd lede && ./scripts/feeds install -a
+
+
+##******************************************************
+
+
+    - name: Load custom configuration
+      run: |
+        #=================================================
+        #+++++++++++++++++++++++++++++++++++++++++++++++++
+        cp -f X86-20230409.config ./lede/.config
+        chmod +x diy-newifi3.sh
+        cd lede
+        ../diy-newifi3.sh
+        #++++++++++++++++++++++++++++++++++++++++++++++++
+        #=================================================
+        make defconfig
+        
+    - name: Download package
+      run: |
+        echo -e "$(nproc) thread build."
+        cd lede && make download -j$(nproc)
+        
+        
+    - name: Build
+      run: |
+        cd lede
+        echo -e "$(nproc) thread build."
+        make -j$(nproc) V=s
+ 
+ ######把上面生成的.config文件拷贝到bin/targets/x86/64/my.config，从而在下载固件时，一起下载回来。
+    - name: Copy .config  to  ./bin/targets/x86/64/my.config
+      run: |
+        cd lede
+        cp  .config   ./bin/targets/x86/64/my.config  
+   
+   
+    - name : Upload artifact
+      uses: actions/upload-artifact@master
+      with:
+        #=================================================
+        name: X86-20230409
+        path: ./lede/bin
+ 
+ ###### 把dl库也下载回来   ###############
+    - name : Upload dl
+      uses: actions/upload-artifact@master
+      with:
+        #=================================================
+        name: X86-20230409-dl
+        path: ./lede/dl

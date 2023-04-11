@@ -10,9 +10,9 @@ name: Build newifi3-openclash20230411
 on: 
   release:
     types: [published]
-  push:
-    branches: 
-      - master
+#  push:
+#    branches: 
+#      - master
 #  watch:
 #    types: [started]
 

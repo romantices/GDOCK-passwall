@@ -10,9 +10,9 @@ name: Build newifi3-openclash20230411
 on: 
   release:
     types: [published]
-#  push:
-#    branches: 
-#      - master
+  push:
+    branches: 
+      - master
 #  watch:
 #    types: [started]
 
@@ -74,12 +74,12 @@ jobs:
     - name: Load custom configuration
       run: |
        
-        cp -f newifi3-openclash20230411.config ./lede/.config
+        cp -f newifi3-clash0411.config ./lede/.config
         
         # chmod +x diy-newifi3.sh
         # cd lede
         # ../diy-newifi3.sh
-        
+        cd lede
         make defconfig
         
     - name: Download package

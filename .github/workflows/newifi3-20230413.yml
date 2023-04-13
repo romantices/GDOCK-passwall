@@ -4,15 +4,15 @@
 #=================================================
 
 #=================================================
-name: Build newifi3-20230409
+name: Build newifi3-20230413
 #=================================================
 
 on: 
   release:
     types: [published]
-#  push:
-#    branches: 
-#      - master
+  push:
+    branches: 
+      - master
 #  watch:
 #    types: [started]
 
@@ -75,7 +75,7 @@ jobs:
       run: |
         #=================================================
         #+++++++++++++++++++++++++++++++++++++++++++++++++
-        cp -f new3-20230409.config ./lede/.config
+        cp -f new3-20230413.config ./lede/.config
         chmod +x diy-newifi3.sh
         cd lede
         ../diy-newifi3.sh
@@ -104,7 +104,7 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name: newifi3-20230409
+        name: newifi3-20230413
         path: ./lede/bin
    
    ###### 把dl库也下载回来   ###############
@@ -112,5 +112,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name: newifi3-20230409-dl
+        name: newifi3-20230413-dl
         path: ./lede/dl

@@ -3,14 +3,14 @@
 #   Author: JK
 #=================================================
 
-name: Build 竞斗云-20230408
+name: Build 竞斗云-20230413
 
 on: 
   release:
     types: [published]
-#  push:
-#    branches: 
-#      - master
+  push:
+    branches: 
+      - master
 #  watch:
 #    types: [started]
 jobs:
@@ -96,5 +96,13 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with: 
-        name: JDY-20230408
+        name: JDY-20230413
         path: ./lede/bin
+
+
+ ###### 把dl库也下载回来   ###############
+    - name : Upload dl
+      uses: actions/upload-artifact@master
+      with: 
+        name: JDY-20230413
+        path: ./lede/dl

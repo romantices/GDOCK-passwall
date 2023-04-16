@@ -8,9 +8,9 @@ name: Build 竞斗云-20230416
 on: 
   release:
     types: [published]
-  push:
-    branches: 
-      - master
+ # push:
+ #   branches: 
+ #     - master
 #  watch:
 #    types: [started]
 jobs:

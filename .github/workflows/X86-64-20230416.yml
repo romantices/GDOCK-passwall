@@ -4,15 +4,15 @@
 #=================================================
 
 #=================================================
-name: Build X86-20230409
+name: Build X86-20230416
 #=================================================
 
 on: 
   release:
     types: [published]
-#  push:
-#    branches: 
-#      - master
+  push:
+    branches: 
+      - master
 #  watch:
 #    types: [started]
 
@@ -74,7 +74,7 @@ jobs:
       run: |
         #=================================================
         #+++++++++++++++++++++++++++++++++++++++++++++++++
-        cp -f X86-20230409.config ./lede/.config
+        cp -f X86-20230416.config ./lede/.config
         chmod +x diy-newifi3.sh
         cd lede
         ../diy-newifi3.sh
@@ -105,7 +105,7 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name: X86-20230409
+        name: X86-20230416
         path: ./lede/bin
  
  ###### 把dl库也下载回来   ###############
@@ -113,5 +113,5 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         #=================================================
-        name: X86-20230409-dl
+        name: X86-20230416-dl
         path: ./lede/dl

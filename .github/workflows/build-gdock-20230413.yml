@@ -3,14 +3,14 @@
 #   Author: JK
 #=================================================
 
-name: Build 竞斗云-20230413
+name: Build 竞斗云-20230416
 
 on: 
   release:
     types: [published]
-#  push:
-#    branches: 
-#      - master
+  push:
+    branches: 
+      - master
 #  watch:
 #    types: [started]
 jobs:
@@ -68,7 +68,7 @@ jobs:
 
     - name: Load custom configuration
       run: |
-        cp -f jdy20230408.config ./lede/.config
+        cp -f jdy20230416.config ./lede/.config
         chmod +x diy.sh
         cd lede
         ../diy.sh
@@ -96,7 +96,7 @@ jobs:
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with: 
-        name: JDY-20230413
+        name: JDY-20230416
         path: ./lede/bin
 
 
@@ -104,5 +104,5 @@ jobs:
     - name : Upload dl
       uses: actions/upload-artifact@master
       with: 
-        name: JDY-20230413
+        name: JDY-20230416-dl
         path: ./lede/dl
